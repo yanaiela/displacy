@@ -74,7 +74,13 @@
     $('#input').addEventListener('keydown', ev => (event.keyCode == 13) && run());
     $('#download').addEventListener('click', ev => $('#download').setAttribute('href', downloadSVG()).click());
 
-
+    window.onkeyup = function(e) {
+        var key = e.keyCode ? e.keyCode : e.which;
+        if (key == 191) { // (the / key)
+           $('#input').focus();
+        }
+    }
+    
     // Update View
 
     const updateView = (text, model, settings) => {
